@@ -83,6 +83,7 @@ function generateObstacle() {
         ) {
             gameOver();
         }
+        asdaspd
 
         // Play point sound if the bird passes the obstacle without collision
         if (!hasPassedObstacle && obstacleLeft < birdLeft) {
