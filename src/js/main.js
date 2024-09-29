@@ -86,7 +86,7 @@ function generateObstacle() {
 
         // Play point sound if the bird passes the obstacle without collision
         if (!hasPassedObstacle && obstacleLeft < birdLeft) {
-            const audioPoint = new Audio('public/audio/point.ogg');
+            const audioPoint = new Audio('/audio/point.ogg');
             audioPoint.play();
             hasPassedObstacle = true; // Ensure the sound plays only once per obstacle
         }
@@ -116,7 +116,7 @@ function gameOver(){
     obstacleIntervals = [];
     clearTimeout(obstacleTimeoutId); // Stop generating new obstacles
 
-   const audioGameOver = new Audio('public/audio/die.ogg');
+   const audioGameOver = new Audio('/audio/die.ogg');
    audioGameOver.play()
 }
 
@@ -144,3 +144,12 @@ function restartGame() {
 
 // Attach the restart function to the "Restart" button
 restartBtn.addEventListener('click', restartGame);
+
+
+// ---------------Dark-Mode--------------------
+
+const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+if(isDarkMode){
+    sky.style.backgroundImage = 'url("/images/background/background-night.png")';
+    document.querySelector("body").style.backgroundColor = '#2C3136';
+}
